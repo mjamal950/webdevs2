@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Speed Cameras</title>
+        <style>
+            p, h1 {
+                font-family: helvetica;
+            }
+            p {
+                font-size:1.5em;
+                line-height:1.5em; 
+                margin-left: 24px;
+            }
+            div { 
+                border: 10px solid black; 
+                margin: 4px; border-radius: 5px; 
+                background-color: orange
+            }
+            body {
+                background-color:skyblue;
+                
+            }
+        </style>
+    </head>
+    <body>
+    <h1 id="title">Affordable Rental Housing Near You</h1>
+        <input type="text" id='input' name="search" placeholder="Street Name">
+        <button id='submit'>Search</button>
+      <div id="map"></div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvfJaYrmBNr8w9MPqikZCT1mI2dKey5nE"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+/*
+This script retrieves 311 pot hole service request data for 
+from the 
+City of Chicago Data Portal
+
+This script doesn't update the DOM.
+
+*/
+
+/*$('#submit').click(function(){
+var baseURL = 'https://data.cityofchicago.org/resource/hhkd-xvj4.json';
+var coordinates = $('#input').val();
+var filters = "?location=" + coordinates;
+var url = baseURL + filters; 
+console.log(url);
+
+// jQuery command to retrieve json data
+
+$.getJSON(url)
+.done (function (data) {
+// TODO: add script to add data to the DOM
+console.log(data);
+
+// loop through the records
+
+$.each(data, function(index, value){
+var html = '<div>' + 
+'<div class="results" id="iframe"><iframe src="//www.google.com/maps/embed/v1/place?q=' 
++ value.location +'&zoom=15&key=AIzaSyDDuRUPt247zE9zMvcot049QWlW6WzPjdw"></iframe>' 
++ '</div>'  
+
+/*var html = "<div class = 'results'>" + value.location
+"</div>"
+"</div>";*/
+
+$("body").append(html);
+
+//});
+
+//})
+
+//}) 
+
+</script>
+<script>
+    $(function () {
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(initMap);
+	}
+  else {
+  	initMap();
+  }
+});
+
+
+// global vars
+
+var circle, map, latLng, infoWindow;
+var mapMarkers = [];	// array for marker objects;  helpful in removing them
+
+
+
+// This example adds a user-editable circle to the map.
+function initMap(position) {
+  console.log("hello again");
+	console.log(position);
+
+	latLng = {lat: 41.8369, lng: -87.6847};	  // default if no geo-location data
+  
+  if (position.coords) {
+    latLng.lat = position.coords.latitude;
+    latLng.lng = position.coords.longitude;
+	}
+
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: latLng,
+    zoom: 13
+  });
+
+
+  // Define a circle and set its editable property to true.
+  circle = new google.maps.Circle({
+    center: latLng,
+    radius: 1000,
+    map: map,
+    editable: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+	});
+  
+  circle.addListener('bounds_changed', showNewCircle);
+  
+  showFoodInspections(circle);  // make the AJAX call and map the data
+  
+  // Define an info window on the map;  we'll update this with new circle params
+  infoWindow = new google.maps.InfoWindow();
+  
+}
+
+function showNewCircle(event) {
+  console.log(circle.getBounds());
+
+  // construct circle-change info window
+  var contentString = '<b>Circle Changed.</b><br>' +
+      'Circle center = ' + circle.getCenter() + '<br>' +
+      'Circle radius: ' + circle.getRadius();
+
+  // Set the info window's content and position.
+  infoWindow.setContent(contentString);
+  infoWindow.setPosition(circle.getCenter());
+
+  clearMarkers();   // remove existing markers 
+
+  infoWindow.open(map);		// show the info window
+  
+  
+  showFoodInspections(circle);  // make the AJAX call and map the data
+}
+
+
+
+function clearMarkers () {
+	// for markers in the array, remove the reference to our map object	
+  $.each(mapMarkers, function(i,entry) {
+  	entry.setMap(null);
+  });
+}
+
+
+
+function showFoodInspections (circle) {
+	
+  var apiEndpoint = 'https://data.cityofchicago.org/resource/4ijn-s7e5.json';
+  var centerLat = circle.getCenter().lat();
+  var centerLng = circle.getCenter().lng();
+  
+  
+  // using the within_circle function and the circle's location and radius
+  var filter = '?$where=results=%27Fail%27 and inspection_type=%27Complaint%27 and within_circle(location,' 	
+  		+ centerLat
+      + ','
+   		+ centerLng
+      + ','     
+      + circle.getRadius()
+      + ')';
+      
+  // AJAX call
+  $.get(apiEndpoint + filter)
+  	.done(function (data) {
+      mapInspections(data);
+    })
+    .fail (function () {
+    	console.log("fail " + apiEndpoint + filter);
+    });
+}
+
+function mapInspections(data){
+	console.log('started mapInspections');
+	$.each(data,function(i,entry) {
+	    
+    	var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">' +
+          entry.dba_name +
+          '</h1>'+
+          '<div id="bodyContent">'+
+          '<p>AKA ' +
+          entry.aka_name +
+          '<br>' +
+          entry.inspection_date +
+          '<br>' +
+          entry.results +
+          '<br>' +
+          '</p>'+
+          '</div>'+
+          '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      var marker = new google.maps.Marker({
+        position: {lat: parseFloat(entry.location.latitude),lng: parseFloat(entry.location.longitude)},
+        map: map,
+        title: entry.dba_name
+      });
+      
+      mapMarkers.push(marker);	// add each marker to the array for later removal
+      
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    });
+    
+      $('#submit').click(function(){
+                var input = $("#input").val();
+                var baseURL = 'https://data.cityofchicago.org/resource/s6ha-ppgi.json';
+                var filters = '?q=' + input;
+                // full URL
+                var url = baseURL + filters;
+                console.log(url);
+                console.log(input)
+
+                    // jQuery command to retrieve json data
+                    
+                    $.getJSON(url)
+                        .done (function (data) {
+                            // TODO:  add script to add data to the DOM
+                            console.log(data);
+                        var inspections = data
+                            // loop through the records
+                        if (inspections.length==0) {
+                            var html = '<p>No developments have been found.</p>';
+                            $("body").append(html)
+                        }
+                        else {
+                        $.each(data, function(index, value){
+                           var html = "<br>" + "Search Results for" + input +
+                           "<hr>" +
+                           "<div>" +
+                           "<h1>Property Name: " + value.property_name + "</h1>" +
+                           "<p>Community: > " + value.community_area + "</p>" + " --- Community Area #" + value.community_area_number +  
+                           "<p>Street Address " + value.address + " " + value.zip_code + "</p>" +
+                           "<p>Units: " + value.units + "</p>" +
+                           "<p>Property Type:" + value.property_type + "</p>" +
+                           "<p>Management Company: " + value.management_company + "</p>" +
+                           "Phone Number" + value.phone_number + "</p>" +
+                           "<hr>" 
+                           "</div>";
+                           
+                           $("body").append(html);
+                           
+                        });
+                        }
+                        });
+                    
+            })
+}
+</script>
+    </body>
+</html> 
