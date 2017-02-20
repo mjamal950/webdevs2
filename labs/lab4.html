@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <title>Towed Vehicles</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            p, h1 {
+                font-family: helvetica;
+            }
+            p {
+                font-size:1.5em;
+                line-height:1.5em; 
+                margin-left: 24px;
+            }
+            pre {
+                font-size: 2em;
+            }
+            div { 
+                background-color: orange
+            }
+            body {
+                background-color:skyblue;
+                
+            }
+            #title {
+                color:purple;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">Towed Vehicle Data Display Stats @CityOfChicago</h1>
+        
+        <button id="submit">Submit</button>
+
+        <div id="results"></div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script>
+            /*
+                This script retrieves the towed data information
+                from the City of Chicago Data Portal
+                
+                You are required to enter the information for your vehicle
+                as a license plate number
+            
+            */
+            
+            var towedVehicle;
+            
+            $(function(){
+                
+                $("#submit").click(function(){
+                
+                    var html = "";
+                    
+                    //  variable to hold the returned data
+                    var inspections;
+                    
+                    // base URL to the food inspections data
+                    var baseURL = 'https://data.cityofchicago.org/resource/rp42-fxjt.json';
+                    
+                    // optional filters we're appending - date range and zip
+                    var filters = "";
+                    
+                    // full URL
+                    var url = baseURL + filters;
+                        
+                    $.getJSON(url).done (function (data) {
+                        // TODO:  add script to add data to the DOM
+                        console.log(data);
+                        // loop through the records
+                        var currentDate = data[0].tow_date;
+                        
+                        var ford =0;
+                        var bmw = 0;
+                        var cad = 0;
+                        var chevy = 0;
+                        var dod = 0;
+                        var hon = 0;
+                        var jagu = 0;
+                        var jeep = 0;
+                        var lex = 0;
+                        var maz = 0;
+                        var mer = 0;
+                        var nis = 0;
+                        var toy = 0;
+                        var vol = 0;
+                        var other =0;
+                        
+                        
+                        $.each(data, function(i,v){
+                           if(v.tow_date == currentDate){
+                                if(v.make == "FORD") {
+                                   ford++;
+                               } else if(v.make == "CHEV") {
+                                   chevy++;
+                               } else if(v.make == "DODG") {
+                                   dod++;
+                               } else if(v.make == "HOND") {
+                                   hon++;
+                               } else if(v.make == "LEXS") {
+                                   lex++;
+                               } else if(v.make == "JAGU") {
+                                   jagu++;
+                               } else if(v.make == "JEEP") {
+                                   jeep++;
+                               } else if(v.make == "MAZD") {
+                                   maz++;
+                               } else if(v.make == "MERC") {
+                                   mer++;
+                               } else if(v.make == "NISS") {
+                                   nis++;
+                               } else if(v.make == "TOYT") {
+                                   toy++;
+                               } else if(v.make == "VOLK") {
+                                   vol++;
+                               } else {
+                                   other++;
+                               }
+                           }
+                        })
+                        
+                            
+                        
+                        google.charts.load('current', {'packages':['corechart']});
+                      google.charts.setOnLoadCallback(drawChart);
+                      function drawChart() {
+                
+                        var data = google.visualization.arrayToDataTable([
+                          ['Make', 'Number of towed vehicles'],
+                          ['Cheverolet',      chevy],
+                          ['Dodge',  dod],
+                          ['Ford', ford],
+                          ['Honda', hon],
+                          ['Lexus', lex],
+                          ['Jaguar', jagu],
+                          ['Jeep', jeep],
+                          ['Mazda', maz],
+                          ['Mercedes', mer],
+                          ['Nissan', nis],
+                          ['Toyota', toy],
+                          ['Volkswagen', vol],
+                          ['Other',    other]
+                        ]);
+                
+                        var options = {
+                          title: 'Make of towed vehicles on ' + currentDate
+                        };
+                
+                        var chart = new google.visualization.PieChart(document.getElementById('results'));
+                
+                        chart.draw(data, {
+                            is3D: true
+                        });
+                      }
+
+                    }) // end of getJSON function
+                    
+                })  // end of click function
+                
+            }) // end of ready command
+            
+            
+        </script>
+    </body>
+</html>
