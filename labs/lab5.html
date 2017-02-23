@@ -51,13 +51,8 @@
             $(function(){
                 
                 $("#submit").click(function(){
-                
-                    var html = "";
                     
-                    //  variable to hold the returned data
-                    var inspections;
-                    
-                    // base URL to the food inspections data
+                    // base URL to the crime data data
                     var baseURL = 'https://data.cityofchicago.org/resource/ijzp-q8t2.json';
                     
                     // optional filters we're appending - date range and zip
@@ -70,7 +65,8 @@
                         // TODO:  add script to add data to the DOM
                         console.log(data);
                         // loop through the records
-                        var currentDate = data[0].date;
+                       
+                       //var currentDate = data[0].date;
                         
                        var ars = 0; //Arson    
                        var asu = 0; //Assault
@@ -80,12 +76,10 @@
                        var crimDam = 0; //Criminal Damage
                        var crimTre = 0; //Criminal Trespassing
                        var dec = 0; //Deceptive Pratice
-                       var gam = 0; //Gambling
                        var kid = 0; //Kidnapping
                        var liq = 0; //Liquor
                        var mot = 0; //Motor Vehicle Theft
                        var narc = 0; //Narcotics
-                       var off = 0; //Offense
                        var pea = 0; //Public Peace Violation
                        var rob = 0; //Robbery
                        var the = 0; //Theft 
@@ -94,7 +88,7 @@
                        
                         
                         $.each(data, function(i,v){
-                           if(v.date == currentDate){
+                          // if(v.date == currentDate){
                                 if(v.primary_type == "ARSON") {
                                    ars++;
                                } else if(v.primary_type == "ASSAULT") {
@@ -109,10 +103,8 @@
                                    crimDam++;
                                } else if(v.primary_type == "CRIMINAL TRESPASS") {
                                    crimTre++;
-                               } else if(v.primary_type == "DECEPTIVE PRATICE") {
+                               } else if(v.primary_type == "DECEPTIVE PRACTICE") {
                                    dec++;
-                               } else if(v.primary_type == "GAMBLING") {
-                                   gam++;
                                } else if(v.primary_type == "KIDNAPPING") {
                                    kid++;
                                } else if(v.primary_type == "LIQUOR LAW VIOLATION") {
@@ -121,8 +113,6 @@
                                    mot++;
                                } else if(v.primary_type == "NARCOTICS") {
                                    narc++;
-                               } else if(v.primary_type == "OFFENSE") {
-                                   off++;
                                } else if(v.primary_type == "PUBLIC PEACE VIOLATION") {
                                    pea++;
                                } else if(v.primary_type == "ROBBERY") {
@@ -134,7 +124,7 @@
                                } else {
                                    other++;
                                }
-                           }
+                          // }
                         })
                         
                             
@@ -152,12 +142,10 @@
                           ['Criminal Damage', crimDam],
                           ['Criminal Trespass', crimTre],
                           ['Deceptive Pratice', dec],
-                          ['Gambling', gam],
                           ['Kidnapping', kid],
                           ['Liquor Law Violation', liq],
                           ['Motor Vehicle Theft', mot],
                           ['Narcotics', narc],
-                          ['Offense', off],
                           ['Public Peace Violation', pea],
                           ['Robbery', rob],
                           ['Theft', the],
@@ -166,13 +154,14 @@
                         ]);
                 
                         var options = {
-                          title: 'Crime in Chicago on ' + currentDate
+                          title: 'Crime in Chicago '
                         };
                 
-                        var chart = new google.visualization.PieChart(document.getElementById('results'));
-                
+                        var chart = new google.visualization.LineChart(document.getElementById('results'));
+                        //Try to get scatter effect on ScatterChart
+                        //Try PieChart too
                         chart.draw(data, {
-                            is3D: true
+                            is3D: false
                         });
                       }
 
