@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <title>Crimes in 2017 - @CityOfChicago</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            p, h1 {
+                font-family: helvetica;
+            }
+            p {
+                font-size:1.5em;
+                line-height:1.5em; 
+                margin-left: 24px;
+            }
+            pre {
+                font-size: 2em;
+            }
+            div { 
+                background-color: orange
+            }
+            body {
+                background-color:skyblue;
+                
+            }
+            #title {
+                color:purple;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">Crimes in 2017 - @CityOfChicago</h1>
+        
+        <button id="submit">See Crime in 2017</button>
+
+        <div id="results"></div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script>
+            /*
+                This script retrieves the towed data information
+                from the City of Chicago Data Portal
+                
+                You are required to enter the information for your vehicle
+                as a license plate number
+            
+            */
+            
+            $(function(){
+                
+                $("#submit").click(function(){
+                
+                    var html = "";
+                    
+                    //  variable to hold the returned data
+                    var inspections;
+                    
+                    // base URL to the food inspections data
+                    var baseURL = 'https://data.cityofchicago.org/resource/ijzp-q8t2.json';
+                    
+                    // optional filters we're appending - date range and zip
+                    var filters = "";
+                    
+                    // full URL
+                    var url = baseURL + filters;
+                        
+                    $.getJSON(url).done (function (data) {
+                        // TODO:  add script to add data to the DOM
+                        console.log(data);
+                        // loop through the records
+                        var currentDate = data[0].date;
+                        
+                       var ars = 0; //Arson    
+                       var asu = 0; //Assault
+                       var bat = 0; //Battery
+                       var bur = 0; //Burglary
+                       var cpd = 0; //Interference with Public Officer
+                       var crimDam = 0; //Criminal Damage
+                       var crimTre = 0; //Criminal Trespassing
+                       var dec = 0; //Deceptive Pratice
+                       var gam = 0; //Gambling
+                       var kid = 0; //Kidnapping
+                       var liq = 0; //Liquor
+                       var mot = 0; //Motor Vehicle Theft
+                       var narc = 0; //Narcotics
+                       var off = 0; //Offense
+                       var pea = 0; //Public Peace Violation
+                       var rob = 0; //Robbery
+                       var the = 0; //Theft 
+                       var wep = 0; //Weapons Violation
+                       var other = 0; //Other Crimes
+                       
+                        
+                        $.each(data, function(i,v){
+                           if(v.date == currentDate){
+                                if(v.primary_type == "ARSON") {
+                                   ars++;
+                               } else if(v.primary_type == "ASSAULT") {
+                                   asu++;
+                               } else if(v.primary_type == "BATTERY") {
+                                   bat++;
+                               } else if(v.primary_type == "BURGLARY") {
+                                   bur++;
+                               } else if(v.primary_type == "INTERFERENCE WITH PUBLIC OFFICER") {
+                                   cpd++;
+                               } else if(v.primary_type == "CRIMINAL DAMAGE") {
+                                   crimDam++;
+                               } else if(v.primary_type == "CRIMINAL TRESPASS") {
+                                   crimTre++;
+                               } else if(v.primary_type == "DECEPTIVE PRATICE") {
+                                   dec++;
+                               } else if(v.primary_type == "GAMBLING") {
+                                   gam++;
+                               } else if(v.primary_type == "KIDNAPPING") {
+                                   kid++;
+                               } else if(v.primary_type == "LIQUOR LAW VIOLATION") {
+                                   liq++;
+                               } else if(v.primary_type == "MOTOR VEHICLE THEFT") {
+                                   mot++;
+                               } else if(v.primary_type == "NARCOTICS") {
+                                   narc++;
+                               } else if(v.primary_type == "OFFENSE") {
+                                   off++;
+                               } else if(v.primary_type == "PUBLIC PEACE VIOLATION") {
+                                   pea++;
+                               } else if(v.primary_type == "ROBBERY") {
+                                   rob++;
+                               } else if(v.primary_type == "THEFT") {
+                                   the++;
+                               } else if(v.primary_type == "WEAPONS VIOLATION") {
+                                   wep++;
+                               } else {
+                                   other++;
+                               }
+                           }
+                        })
+                        
+                            
+                        
+                        google.charts.load('current', {'packages':['corechart']});
+                      google.charts.setOnLoadCallback(drawChart);
+                      function drawChart() {
+                
+                        var data = google.visualization.arrayToDataTable([
+                          ['Crime', 'Number of violations'],
+                          ['Arson',      ars],
+                          ['Assault',  asu],
+                          ['Battery', bat],
+                          ['Burglary', bur],
+                          ['Criminal Damage', crimDam],
+                          ['Criminal Trespass', crimTre],
+                          ['Deceptive Pratice', dec],
+                          ['Gambling', gam],
+                          ['Kidnapping', kid],
+                          ['Liquor Law Violation', liq],
+                          ['Motor Vehicle Theft', mot],
+                          ['Narcotics', narc],
+                          ['Offense', off],
+                          ['Public Peace Violation', pea],
+                          ['Robbery', rob],
+                          ['Theft', the],
+                          ['Weapons Violation', wep],
+                          ['Other Crime',    other]
+                        ]);
+                
+                        var options = {
+                          title: 'Crime in Chicago on ' + currentDate
+                        };
+                
+                        var chart = new google.visualization.PieChart(document.getElementById('results'));
+                
+                        chart.draw(data, {
+                            is3D: true
+                        });
+                      }
+
+                    }) // end of getJSON function
+                    
+                })  // end of click function
+                
+            }) // end of ready command
+            
+            
+        </script>
+    </body>
+</html>
