@@ -2,6 +2,7 @@
 <html>
   
   <head>
+    <title>International Currency Converter</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -57,18 +58,66 @@
       </div>
       
       <main class="mdl-layout__content">
-        <div id="screen1" class="screen page-content">Screen 1</div>
-        <div id="screen2" class="screen page-content">Screen 2</div>
-        <div id="screen3" class="screen page-content">Screen 3</div>
+        
+        <!--Screen 1-->
+        <div id="screen1" class="screen page-content">
+          Screen 1
+        </div>
+        
+        <!--Screen 2-->
+        <div id="screen2" class="screen page-content">
+          Screen 2
+        </div>
+        
+        <!--Screen 3-->
+        <div id="screen3" class="screen page-content">
+          Screen 3
+        </div>
       
       </main>
     </div>
     
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
     <script>
         $(function(){
+          
+          // set endpoint and your access key
+          endpoint = 'live'
+          access_key = '5e2649187a3191e5d21109a175e37e24';
+          
+          // get the most recent exchange rates via the "live" endpoint:
+          $.ajax({
+              url: 'http://apilayer.net/api/' + endpoint + '?5e2649187a3191e5d21109a175e37e24=' + access_key,   
+              dataType: 'jsonp',
+              success: function(json) {
+          
+                  // exchange rata data is stored in json.quotes
+                  alert(json.quotes.USDGBP);
+                  
+                  // source currency is stored in json.source
+                  alert(json.source);
+                  
+                  // timestamp can be accessed in json.timestamp
+                  alert(json.timestamp);
+                
+                var html= "";
+                  
+                $("#screen1").append(html);
+                
+                
+              }
+          });
+          
+          
+          
+          //Code under is for what appears on the screens
+          
+          //Main Home Screen/Page
            $("#screen1").show(); 
            
+           //Screen 1 Code
            $("#link1").on("click", function(){
                $(".screen").hide();
                $("#screen1").show();
@@ -76,6 +125,7 @@
                $("body").append(html1);
            })
            
+           //Screen 2 Code
            $("#link2").on("click", function(){
                $(".screen").hide();
                $("#screen2").show();
@@ -83,6 +133,7 @@
                $("body").append(html2);
            })
            
+           //Screen 3 Code
            $("#link3").on("click", function(){
                $(".screen").hide();
                $("#screen3").show();
