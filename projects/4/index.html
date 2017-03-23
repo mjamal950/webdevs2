@@ -30,16 +30,16 @@
         <div class="mdl-layout__header-row">
           
           <!-- Title -->
-          <span class="mdl-layout-title">Title</span>
+          <span class="mdl-layout-title">International Currency Converter</span>
           
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           
           <!-- Navigation on the top bar. We hide it in small screens. -->
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a id="link1" class="mdl-navigation__link" href="#">Link 1</a>
-            <a id="link2" class="mdl-navigation__link" href="#">Link 2</a>
-            <a id="link3" class="mdl-navigation__link" href="#">Link 3</a>
+            <a id="link1" class="mdl-navigation__link" href="#">Home</a>
+            <a id="link2" class="mdl-navigation__link" href="#">Currencies</a>
+            <a id="link3" class="mdl-navigation__link" href="#">U.S. $ Rates</a>
           </nav>
           
         </div>
@@ -50,9 +50,9 @@
         
         <!-- Navigation on the side bar -->
         <nav class="mdl-navigation">
-          <a id="link1" class="mdl-navigation__link" href="#">Link 1</a>
-          <a id="link2" class="mdl-navigation__link" href="#">Link 2</a>
-          <a id="link3" class="mdl-navigation__link" href="#">Link 3</a>
+          <a id="link1" class="mdl-navigation__link" href="#">Home</a>
+          <a id="link2" class="mdl-navigation__link" href="#">Currencies</a>
+          <a id="link3" class="mdl-navigation__link" href="#">Rates</a>
         </nav>
         
       </div>
@@ -81,6 +81,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
     <script>
+        
         $(function(){
           
           // set endpoint and your access key
@@ -89,7 +90,7 @@
           
           // get the most recent exchange rates via the "live" endpoint:
           $.ajax({
-              url: 'http://apilayer.net/api/' + endpoint + '?5e2649187a3191e5d21109a175e37e24=' + access_key,   
+              url: 'http://apilayer.net/api/' + endpoint + '?' + access_key,   
               dataType: 'jsonp',
               success: function(json) {
           
@@ -104,7 +105,7 @@
                 
                 var html= "";
                   
-                $("#screen1").append(html);
+                $("#screen2").append(html);
                 
                 
               }
@@ -121,25 +122,18 @@
            $("#link1").on("click", function(){
                $(".screen").hide();
                $("#screen1").show();
-               var html1 = text;
-               $("body").append(html1);
            })
            
            //Screen 2 Code
            $("#link2").on("click", function(){
                $(".screen").hide();
                $("#screen2").show();
-               var html2 = text;
-               $("body").append(html2);
            })
            
            //Screen 3 Code
            $("#link3").on("click", function(){
                $(".screen").hide();
                $("#screen3").show();
-               var html3 = text;
-               $("body").append(html3);
-               
            })
         })
     </script>
