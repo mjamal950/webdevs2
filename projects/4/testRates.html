@@ -10,7 +10,7 @@
   
   <body>
     
-    <h1>International Currency Converter</h1>
+    <h1>CurrencyHub</h1>
     <i>Know Money Before You Spend Money</i>
     
     <br>
@@ -21,28 +21,73 @@
     
     <script>
     
-    // set endpoint and your access key
-    endpoint = 'live'
-    access_key = '5e2649187a3191e5d21109a175e37e24';
     
-    // get the most recent exchange rates via the "live" endpoint:
-    $.ajax({
-        url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key,   
-        dataType: 'jsonp',
-        success: function(json) {
-    
-            // exchange rata data is stored in json.quotes
-            alert(json.quotes.USDGBP);
-            
-            // source currency is stored in json.source
-            alert(json.source);
-            
-            // timestamp can be accessed in json.timestamp
-            alert(json.timestamp);
-            
-        }
-    });
+           $(function() {
+              
+              
+              var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+              
+              var apiEndpoint = "http://apilayer.net/api/live";
+              
+              //var findBus = $("find").val();
+              
+              $.ajax({
+                  url: apiPassThruUrl,
+                  dataType: "json",
+                  method: 'GET',
+                  data: {"apiEndpoint": apiEndpoint,
+                          "access_key" : "5e2649187a3191e5d21109a175e37e24",
+                          "format":"1"}
+                }).done (function (data) {
+                console.log(data);
+                console.log(url);
+                  
+                $("body").append(
+                  
+                "<div>" + 
                 
+                
+                
+                "</div>"
+                
+                );
+    
+                });
+            });
+    
+    // // set endpoint and your access key
+    // endpoint = 'live'
+    // access_key = '5e2649187a3191e5d21109a175e37e24';
+    
+    // // get the most recent exchange rates via the "live" endpoint:
+    // $.ajax({
+    //     url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key,   
+    //     dataType: 'json',
+        
+    //     /*success: function(json) {
+            
+    //         console.log(url);
+            
+    //         // exchange rata data is stored in json.quotes
+    //         //alert(json.quotes.USDGBP);
+            
+    //         // source currency is stored in json.source
+    //         alert(json.source);
+    //     } */
+        
+    // });
+          
+    //     $.each(data[""], function(i,v) {
+             
+    //       var html = "<div>" + 
+            
+    //       "<p>USD to " + 
+           
+    //       "</div>"
+                 
+    //       $("body").append(html);
+    //   })   
+       
     </script>
     
   </body>
