@@ -2,7 +2,7 @@
 <html>
   
   <head>
-    <title>International Currency Converter</title>
+    <title>CurrencyHub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -59,19 +59,41 @@
       
       <main class="mdl-layout__content">
         
-        <!--Screen 1-->
+        <!--Screen 1: Homepage-->
         <div id="screen1" class="screen page-content">
-          Screen 1
+          
+          <h1>Welcome to CurrencyHub</h1>
+          <h3><i>Know Money Before You Spend Money</i></h3>
+          
+          <br>
+          
+          <h5>Thinking about travelling to another country?</h5>
+          <h5>Worrying about spending in a new place></h5>
+          
+          <p>Well, look no further. Welcome to CurrencyHub, the numbver one traveller's guide to foreign currencies and international exchange rates. 
+          Using the currencylayer API, this web app will help you indicate the different exchange rates of the American dollar to the currency of the country
+          that you are travelling to. <a href="#">See list of availible currencies here.</a></p>
+          
+          <br>
+          
+          <footer>
+           
+          </footer>
         </div>
         
-        <!--Screen 2-->
+        <!--Screen 2: List of Currencies-->
         <div id="screen2" class="screen page-content">
-          Screen 2
+          
+          <h1>Availible Currencies</h1>
+          
         </div>
         
-        <!--Screen 3-->
+        <!--Screen 3: US Dollar Exchange Rates-->
         <div id="screen3" class="screen page-content">
-          Screen 3
+          
+          <h1>U.S. Dollar Exchange Rates</h1>
+          
+          
         </div>
       
       </main>
@@ -85,9 +107,8 @@
         $(function(){
           
           //CURRENCYLAYER API SCRIPT
-          
-          
-           $(function() {
+      
+            $(function() {
               
               
               var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
@@ -104,20 +125,16 @@
                           "access_key" : "5e2649187a3191e5d21109a175e37e24",
                           "format":"1"}
                 }).done (function (data) {
-                console.log(data);
-                console.log(url);
+                  console.log(data);
                   
-                $("#screen3").append(
-                  
-                "<div>" + 
+                $("#screen3").append("<h4>" + data.quotes.USDAED 
                 
-                "</div>"
+                + "</h4>" 
                 
                 );
     
                 });
-            });
-    
+ 
     // // set endpoint and your access key
     // endpoint = 'live'
     // access_key = '5e2649187a3191e5d21109a175e37e24';
@@ -149,9 +166,9 @@
     //       "</div>"
                  
     //       $("body").append(html);
-    //   })   
-          
-          
+      });      
+              
+
           
           //Code under is for what appears on the screens
           

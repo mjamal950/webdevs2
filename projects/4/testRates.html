@@ -10,7 +10,7 @@
   
   <body>
     
-    <h1>CurrencyHub</h1>
+    <h1>International Currency Converter</h1>
     <i>Know Money Before You Spend Money</i>
     
     <br>
@@ -39,22 +39,16 @@
                           "access_key" : "5e2649187a3191e5d21109a175e37e24",
                           "format":"1"}
                 }).done (function (data) {
-                console.log(data);
-                console.log(url);
+                  console.log(data);
                   
-                $("body").append(
-                  
-                "<div>" + 
+                $("body").append("<h4>" + data.quotes.USDAED 
                 
-                
-                
-                "</div>"
+                + "</h4>" 
                 
                 );
     
                 });
-            });
-    
+ 
     // // set endpoint and your access key
     // endpoint = 'live'
     // access_key = '5e2649187a3191e5d21109a175e37e24';
@@ -86,7 +80,7 @@
     //       "</div>"
                  
     //       $("body").append(html);
-    //   })   
+      });   
        
     </script>
     
