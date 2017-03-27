@@ -95,8 +95,10 @@
           <h1>U.S. Dollar Exchange Rates</h1>
           <h6><i>At CurrencyHub, we want to the provide exchange rates of the American dollar for some of the best countries in the world
           from Switzerland to the U.K. The currencylayer API allows you to have access to have accesss to the exchange rates of the currencies of over
-          160 countries. Here are the exchange rates in accordance to tourist countries based on categories. For more information on these countries <a href="https://www.usnews.com/news/best-countries/rankings-index">click here.</a></i></h6>
-        
+          160 countries. Here are the exchange rates of the American dollar in diferent countries ranked by continent. For more information on the best countries to live in <a href="https://www.usnews.com/news/best-countries/rankings-index">click here.</a></i></h6>
+          
+          <br>
+          
         </div>
       
       </main>
@@ -139,129 +141,220 @@
                   
                 $("#screen3").append( "<div>" +
                 
-                  
-                //ADVENTURE
-                "<h3>Adventure:<h3>" +
-                "<p>1: Brazil---" + data.quotes.USDBRL + "" +
-                "<p>2: Panama---" + data.quotes.USDPAB + "" +
-                "<p>3: Spain---" + data.quotes.USD + "" +
-                "<p>4: Thailand---" + data.quotes.USD + "" +
-                "<p>5: Greece---" + data.quotes.USD + "" +
-                "<p>6: New Zealand" + data.quotes.USD + "" +
-                "<p>7: Costa Rica" + data.quotes.USD + "" +
-                "<p>8: Mexico" + data.quotes.USD + "" +
-                "<p>9: Austrailia" + data.quotes.USD + "" +
-                "<p>10: Argentina" + data.quotes.USD + "" +
+                //NORTH AMERICA
+                "<h3>North America</h3>" +
+               
+                "Canada--- " + data.quotes.USDCAD + " CAD" + "<br>" +
                 
                 
-                //CITIZENSHIP
-                "<p>1: Norway---" + data.quotes.USD + "" +
-                "<p>2: Sweden---" + data.quotes.USD + "" +
-                "<p>3: Switzerland--" + data.quotes.USD + "" +
-                "<p>4: Canada---" + data.quotes.USD + "" +
-                "<p>5: Finland---" + data.quotes.USD + "" +
-                "<p>6: Denmark---" + data.quotes.USD + "" +
-                "<p>7: Netherlands---" + data.quotes.USD + "" +
-                "<p>8: Germany---" + data.quotes.USD + "" +
-                "<p>9: Austria---" + data.quotes.USD + "" +
-                "<p>10: Luxembourg---" + data.quotes.USD + "" +
+                "<br>" +
                 
-                //CULTURAL INFLUENCE
-                "<h3>Cultural Influence:<h3>" +
-                "<p>1: Italy---" + data.quotes.USD + "" +
-                "<p>2: France---" + data.quotes.USD + "" +
-                "<p>3: Japan---" + data.quotes.USD + "" +
-                "<p>4: Singapore---" + data.quotes.USD + "" +
-                "<p>5: Spain---" + data.quotes.USD + "" +
-                "<p>6: China---" + data.quotes.USD + "" +
-                "<p>7: Portugal---" + data.quotes.USD + "" +
-                "<p>8: Ireland---" + data.quotes.USD + "" +
-                "<p>9: Egypt" + data.quotes.USD + "" +
-                "<p>10: Qatar" + data.quotes.USD + "" +
+                //CARRIBEAN
+                "<h3>Carribean Countries and Overseas Territories</h3>" +
+                "East Carribean Dollar (Antigua and Barbuda, Dominica, Grenada, Montserrat, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Anguilla)---" + data.quotes.USDXCD + " XCD" + "<br>" +
+                "Aruba (Netherlands)--- " + data.quotes.USDAWG + " AWG" + "<br>" +
+                "Bahamas---" + data.quotes.USDBSD + " BSD" + "<br>" +
+                "Barbados--- " + data.quotes.USDBBD+ " BBD" + "<br>" +
+                "Bermuda (U.K.)--- " + data.quotes.USDBMD + " BMD" + "<br>" +
+                "Cayman Islands (U.K.)---" + data.quotes.USDKYD + " KYD" + "<br>" +
+                "Curaçao (Netherlands)" + data.quotes.USDANG + " ANG" + "<br>" +
+                "Falkland Islands (U.K)---" + data.quotes.USDFKP + " FKP" + "<br>" +
+                "Jamaica---" + data.quotes.USDJMD + " JMD" + "<br>" + 
+                "Saint Helena (U.K)---" + data.quotes.USDSHP + " SHP" + "<br>" +
+                "Sint Maarten (Netherlands)" + data.quotes.USDANG + " ANG" + "<br>" +
+                "Trinidad and Tobago---" + data.quotes.USDTTD + " TTD" + "<br>" +
                 
-                //STUDY ABROAD
-                 "<h3>Studying Abroad:<h3>" +
-                "<p>1: United Arab Emirates---" + data.quotes.USDAED + " AED" +
-                "<p>2: Singapore---" + data.quotes.USD + "" +
-                "<p>3: India---" + data.quotes.USD + "" +
-                "<p>4: Turkey---" + data.quotes.USD + "" +
-                "<p>5: Romania---" + data.quotes.USD + "" +
+                 
+                "<br>" +
                 
-                //ENTRENEPENEURSHIP
-                "<h3>Entrenepeurship:<h3>" +
-                "<p>1: " + data.quotes.USD + "" +
-                "<p>2: " + data.quotes.USD + "" +
-                "<p>3: " + data.quotes.USD + "" +
-                "<p>4: " + data.quotes.USD + "" +
-                "<p>5: " + data.quotes.USD + "" +
-                "<p>6: " + data.quotes.USD + "" +
-                "<p>7: " + data.quotes.USD + "" +
-                "<p>8: " + data.quotes.USD + "" +
-                "<p>9: " + data.quotes.USD + "" +
-                "<p>10: " + data.quotes.USD + "" +
+                //SOUTH AND CENTRAL AMERICA
+                "<h3>South/Central American</h3>" +
+                "Argentina---" + data.quotes.USDARS + " ARS" + "<br>" + 
+                "Bolivia---" + data.quotes.USDBOB + " BOB" + "<br>" +
+                "Brazil---" + data.quotes.USDBRL + " BRL" + "<br>" +
+                "Belize---" + data.quotes.USDBZD + " BZD" + "<br>" +
+                "Chile (peso)---" + data.quotes.USDCLP + " CLP" + "<br>" +
+                "Chile (unit of account)--- " + data.quotes.USDCLF + " CLF" + "<br>" +
+                "Costa Rica---" + data.quotes.USDCRC + " CRC" + "<br>" +
+                "Cuba (peso)---" + data.quotes.USDCUP + " CUP" + "<br>" +
+                "Cuba (convertible peso)---" + data.quotes.USDCUD + " CUD" + "<br>" +
+                "Dominican Republic--- " + data.quotes.USDDOP + " DOP" + "<br>" +
+                "El Salvador (colon)---" + data.quotes.USDSVC + " SVC" + "<br>" +
+                "Guatemala---" + data.quotes.USDGTQ + " GTQ" + "<br>" +
+                "Guyana---" + data.quotes.USDGYD + " GYD" + "<br>" +
+                "Haiti---" + data.quotes.USDHTG + " HTG" + "<br>" +
+                "Honduras---" + data.quotes.USDHNL + " HNL" + "<br>" +
+                "Mexico---" + data.quotes.USDMXN + " MXN" + "<br>" +
+                "Nicaragua---" + data.quotes.USDNIO + " NIO" + "<br>" +
+                "Panama---" + data.quotes.USDPAB + " PAB" + "<br>" +
+                "Paraguay---" + data.quotes.USDPYG + " PYG" + "<br>" +
+                "Peru---" + data.quotes.USDPEN + " PEN" + "<br>" +
+                "Suriname---" + data.quotes.USDSRD + " SRD" + "<br>" +
+                "Uruguay---" + data.quotes.USDUYU + " UYU" + "<br>" +
+                "Venezuela--- " + data.quotes.USDVEF + " VEF" + "<br>" +
                 
-                //MOVERS
-                "<h3>Rapidly Growing:<h3>" +
-                "<p>1: United Arab Emirates" + data.quotes.USD + "" +
-                "<p>2: Singapore---" + data.quotes.USD + "" +
-                "<p>3: India---" + data.quotes.USD + "" +
-                "<p>4: China---" + data.quotes.USD + "" +
-                "<p>5: Japan---" + data.quotes.USD + "" +
-                "<p>6: Malaysia---" + data.quotes.USD + "" +
-                "<p>7: Qatar---" + data.quotes.USD + "" +
-                "<p>8: Oman---" + data.quotes.USD + "" +
-                "<p>9: Kazakhstan---" + data.quotes.USD + "" +
-                "<p>10: Costa Rica---" + data.quotes.USD + "" +
+                "<br>" +
+                
+                //EUROPE
+                "<h3>Europe</h3>" +
+               "Eurozone Member Nations of the European Union (Austria, Belgium. Cyprus, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Portugal, Slovakia, Slovenia, Spain)---" + data.quotes.USDEUR + " EUR" + "<br>" +
+               "Albania---" + data.quotes.USDALL+ " ALL" + "<br>" +
+               "Bosnia and Herzegovina---" + data.quotes.USDBAM + " BAM" + "<br>" +
+               "Bulgaria---" + data.quotes.USDBGN + " BGN" + "<br>" +
+               "Belarus (ruble)---" + data.quotes.USDBYR + " BYR" + "<br>" +
+               "Belarus (new ruble)---" + data.quotes.USDBYN + " BYN" + "<br>" +
+               "Croatia---" + data.quotes.USDHRK + " HRK" + "<br>" +
+               "Denmark---" + data.quotes.USDDKK + " DKK" + "<br>" +
+               "Estonia---" + data.quotes.USDEEK + " EEK" + "<br>" +
+               "Georgia---" + data.quotes.USDGEL + " GEL" + "<br>" +
+               "Gibraltar (U.K.) (Gibraltar pound)---" + data.quotes.USDGIP + " GIP" + "<br>" +
+               "Guernsey---" + data.quotes.USDGGP + " GGP" + "<br>" +
+               "Hungary---" + data.quotes.USDHUF + " HUF" + "<br>" +
+               "Iceland---" + data.quotes.USDISK + " ISK" + "<br>" +
+               "Isle of Man (U.K.) (manx pound)---" + data.quotes.USDIMP + " IMP" + "<br>" +
+               "Jersey (U.K.) (Jersey Pound)---" + data.quotes.USDJEP + " JEP" + "<br>" +
+               "Macedonia---" + data.quotes.USDMKD + " MKD" + "<br>" +
+               "Moldova---" + data.quotes.USDMDL + " MDL" + "<br>" +
+               "Norway---" + data.quotes.USDNOK + " NOK" + "<br>" +
+               "Poland---" + data.quotes.USDPLN + " PLN" + "<br>" +
+               "Romania---" + data.quotes.USDRON + " RON" + "<br>" +
+               "Russia---" + data.quotes.USDRUB + " RUB" + "<br>" +
+               "Serbia---" + data.quotes.USDRSD + " RSD" + "<br>" +
+               "Switzerland---" + data.quotes.USDCHF + " CHF" + "<br>" +
+               "Sweden---" + data.quotes.USDSEK + " SEK" + "<br>" +
+               "United Kingdom (pound sterling)---" + data.quotes.USDGBP + " GBP" + "<br>" +
+               "Ukraine---" + data.quotes.USDUAH + " UAH" + "<br>" +
+               
+               
+                
+                "<br>" +
+                
+                //ASIA
+                "<h3>Asia</h3>" +
+                "Armenia---" + data.quotes.USDAMD + " AMD" + "<br>" +
+                "Azerbaijan---" + data.quotes.USDAZN + " AZN" + "<br>" +
+                "Brunei Darussalam---" + data.quotes.USDBND + " BND" + "<br>" +
+                "Cambodia---" + data.quotes.USDKHR +  " KHR" + "<br>" +
+                "China---" + data.quotes.USDCNY + " CNY" + "<br>" +
+                "Hong Kong---" + data.quotes.USDHKD + " HKD" + "<br>" +
+                "Indonesia---" + data.quotes.USDIDR + " IDR" + "<br>" +
+                "Japan---" + data.quotes.USDJPY + " JPY" + "<br>" +
+                "Kyrgystan---" + data.quotes.USDKGS + " KGS" + "<br>" +
+                "Kazakhstan---" + data.quotes.USDKZT + " KZT" + "<br>" +
+                "Laos---" + data.quotes.USDLAK + " LAK" + "<br>" +
+                "Malaysia---" + data.quotes.USDMYR + " MYR" + "<br>" +
+                "Myanmar/Burma---" + data.quotes.USDMMK + " MMK" + "<br>" +
+                "Mongolia---" + data.quotes.USDMNT + " MNT" + "<br>" +
+                "Philippines---" + data.quotes.USDPHP + " PHP" + "<br>" +
+                "Singapore---" + data.quotes.USDSGD + " SGD" + "<br>" +
+                "South Korea---" + data,quotes.USDKRW + " KRW" + "<br>" + 
+                "Tajikistan---" + data.quotes.USDTJS + " TJS" + "<br>" +
+                "Thailand---" + data.quotes.USDTHB + " THB" + "<br>" +
+                "Turkmenistan---" + data.quotes.USDTMT + " TMT" + "<br>" +
+                "Taiwan---" + data.quotes.USDTWD + " TWD" + "<br>" +
+                "Uzbekistan---" + data.quotes.USDUZS + " UZS" + "<br>" +
+                "Vietnam---" + data.quotes.USDVND + " VND" + "<br>" +
+                
+                "<br>" +
+                
+                //INDIAN SUBCONTINENT
+                "<h3>Indian Subcontinent</h3>" +
+                "Bangladesh---" + data.quotes.USDBDT + " BDT" + "<br>" +
+                "Bhutan---" + data.quotes.USDBTN + " BTN" + "<br>" +
+                "India---" + data.quotes.USDINR + " INR" + "<br>" +
+                "Maldives---" + data.quotes.USDMVR + " MVR" + "<br>" +
+                "Pakistan---" + data.quotes.USDPKR + " PKR" + "<br>" +
+                "Nepal---" + data.quotes.USDNPR + " NPR" + "<br>" +
+                "Sri Lanka---" + data.quotes.USDLKR + " LKR" + "<br>" +
+                
+                "<br>" +
                 
                 
-                //OPEN FOR BUSINESS
-                "<h3>Open for Business:<h3>" +
-                "<p>1: Panama---" + data.quotes.USD + "" +
-                "<p>2: Luxembourg---" + data.quotes.USD + "" +
-                "<p>3: Switzerland---" + data.quotes.USD + "" +
-                "<p>4: Denmark---" + data.quotes.USD + "" +
-                "<p>5: Finland---" + data.quotes.USD + "" +
-                "<p>6: New Zealand---" + data.quotes.USD + "" +
-                "<p>7: Malaysia---" + data.quotes.USD + "" +
-                "<p>8: Austria---" + data.quotes.USD + "" +
-                "<p>9: Dominican Republic---" + data.quotes.USD + "" +
-                "<p>10: South Korea---" + data.quotes.USD + "" +
+                //AFRICA 
+                "<h3>Africa</h3>" +
+                "Central African Franc ()al Africa: Cameroon, Central African Republic, Chad, Congo-Brazzaville, Equatorial Guinea, Gabon---" + data.quotes.USDXAF + " XAF" + "<br>" +
+                "West African CFA franc (West Africa: Benin, Burkina Faso, Guinea-Bissau, Ivory Coast, Mali, Niger, Senegal, Togo.)---" + data.quotes.USDXOF + " XOF" + "<br>" +
+                "Algeria---" + data.quotes.USD + " " + "<br>" +
+                "Angola---" + data.quotes.USD + " " + "<br>" +
+                "Burundi---" + data.quotes.USD + " " + "<br>" +
+                "Botswana---" + data.quotes.USD + " " + "<br>" +
+                "Comoros---" + data.quotes.USD + " " + "<br>" +
+                "Congo-Kinshasa---" + data.quotes.USD + " " + "<br>" +
+                "Cape Verde---" + data.quotes.USD + " " + "<br>" +
+                "Djibouti---" + data.quotes.USD + " " + "<br>" +
+                "Eritrea---" + data.quotes.USD + " " + "<br>" +
+                "Ethiopia---" + data.quotes.USD + " " + "<br>" +
+                "Ghana---" + data.quotes.USD + " " + "<br>" +
+                "Gambia---" + data.quotes.USD + " " + "<br>" +
+                "Guinea---" + data.quotes.USD + " " + "<br>" +
+                "Lesotho---" + data.quotes.USD + " " + "<br>" +
+                "Libya---" + data.quotes.USD + " " + "<br>" +
+                "Morocco---" + data.quotes.USD + " " + "<br>" +
+                "Madagascar---" + data.quotes.USD + " " + "<br>" +
+                "Mauritania---" + data.quotes.USD + " " + "<br>" +
+                "Mauritius---" + data.quotes.USD + " " + "<br>" +
+                "Malawi---" + data.quotes.USD + " " + "<br>" +
+                "Mozambique---" + data.quotes.USD + " " + "<br>" +
+                "Namibia---" + data.quotes.USD + " " + "<br>" +
+                "Nigeria---" + data.quotes.USD + " " + "<br>" +
+                "Rwanda---" + data.quotes.USD + " " + "<br>" +
+                "Seychelles---" + data.quotes.USD + " " + "<br>" +
+                "South Africa---" + data.quotes.USD + " " + "<br>" +
+                "São Tomé and Príncipe Dobra---" + data.quotes.USD + " " + "<br>" +
+                "Swaziland---" + data.quotes.USD + " " + "<br>" +
+                "Tunisia---" + data.quotes.USD + " " + "<br>" +
+                "Tanzania---" + data.quotes.USD + " " + "<br>" +
+                "Uganda---" + data.quotes.USD + " " + "<br>" +
+                "Zambia---" + data.quotes.USD + " " + "<br>" +
+                "Zimbabwe---" + data.quotes.USD + " " + "<br>" +
+                
+                "<br>" +
+                
+                //MIDDLE EAST
+                "<h3>Middle East</h3>" +
+                "Afghanistan---" + data.quotes.USD + " " + "<br>" +
+                "Bahrain---" + data.quotes.USD + " " + "<br>" +
+                "Egypt---" + data.quotes.USD + " " + "<br>" +
+                "Israel---" + data.quotes.USD + " " + "<br>" +
+                "Iraq---" + data.quotes.USD + " " + "<br>" +
+                "Iran---" + data.quotes.USD + " " + "<br>" +
+                "Jordan---" + data.quotes.USD + " " + "<br>" +
+                "Kuwait---" + data.quotes.USD + " " + "<br>" +
+                "Lebanon---" + data.quotes.USD + " " + "<br>" +
+                "Oman---" + data.quotes.USD + " " + "<br>" +
+                "Qatar---" + data.quotes.USD + " " + "<br>" +
+                "Saudi Arabia---" + data.quotes.USD + " " + "<br>" +
+                "Syria---" + data.quotes.USD + " " + "<br>" +
+                "Turkey---" + data.quotes.USD + " " + "<br>" +
+                "United Arab Emirates---" + data.quotes.USD + " " + "<br>" +
+                "Yemen---" + data.quotes.USD + " " + "<br>" +
                 
                 
-                //EDUCATION
-                "<h3>Education<h3>" +
-                "<p>1: Canada---" + data.quotes.USD + "" +
-                "<p>2: United Kingdom---" + data.quotes.USD + "" +
-                "<p>3: Germany" + data.quotes.USD + "" +
-                "<p>4: Austrailia---" + data.quotes.USD + "" +
-                "<p>5: France---" + data.quotes.USD + "" +
+                "<br>" +
                 
-                //POWER
-                "<h3>Power<h3>" +
-                "<p>1: Russia---" + data.quotes.USD + "" +
-                "<p>2: China---" + data.quotes.USD + "" +
-                "<p>3: United Kingdom---" + data.quotes.USD + "" +
-                "<p>4: Germany---" + data.quotes.USD + "" +
-                "<p>5: FRance---" + data.quotes.USD + "" +
-                "<p>6: Japan---" + data.quotes.USD + "" +
-                "<p>7: Saudi Arabia---" + data.quotes.USD + "" +
-                "<p>8: Turkey---" + data.quotes.USD + "" +
-                "<p>9: Iran---" + data.quotes.USD + "" +
-                "<p>10: South Korea---" + data.quotes.USD + "" +
+                //AUSTRILIA AND OCEANIA
+                "<h3>Austrailia and Oceania</h3>" +
+                "Austrailia---" + data.quotes.USDAUD + " AUD" + "<br>" +
+                "French Polynesia (France)---" + data.quotes.USDXPF + " XPF" + "<br>" +
+                "New Caledonia (France)---" + data.quotes.USDXPF + " XPF" + "<br>" +
+                "New Zealand---" + data.quotes.USD + " " + "<br>" +
+                "Papua New Guinea---" + data.quotes.USD + " " + "<br>" +
+                "Wallis and Futna (France)---" + data.quotes.USDXPF + " XPF" + "<br>" +
+                "Samoa---" + data.quotes.USD + " " + "<br>" +
+                "Solomon Islands---" + data.quotes.USD + " " + "<br>" +
+                "Tonga---" + data.quotes.USD + " " + "<br>" +
+                "Vanuatu---" + data.quotes.USD + " " + "<br>" +
+                
+                "<br>" +
                 
                 
-                //QUALITY OF LIFE
-                "<h3>Quality of Life: <h3>" +
-                "<p>1: Luxembourg---" + data.quotes.USD + "" +
-                "<p>2: Canada---" + data.quotes.USD + "" +
-                "<p>3: Norway---" + data.quotes.USD + "" +
-                "<p>4: Switzerland---" + data.quotes.USD + "" +
-                "<p>5: France---" + data.quotes.USD + "" +
-                "<p>6: Germany---" + data.quotes.USD + "" +
-                "<p>7: AustriaNetherlands---" + data.quotes.USD + "" +
-                "<p>8: United Kingdom---" + data.quotes.USD + "" +
-                "<p>9: Denmark---" + data.quotes.USD + "" +
-                "<p>10: Netherlands---" + data.quotes.USD + "" +
+                //PRECIOUS METALS OTHER CURRENCIES
+                "<h3>Precious Metals and Other Currencies</h3>" +
+                "Bitcoin---" + data.quotes.USDBTC + " BTC" + "<br>" +
+                "Gold (troy ounce)---" + data.quotes.USDXAU + " XAU" + "<br>" +
+                "Silver (troy ounce)--" + data.quotes.USDXAG + " XAG" + "<br>" +
+                "Special Drawing Rights (International Monetary Fund)---" + data.quotes.USDXDR + " XDR" + "<br>" +
+                
                 
                 "</div>"
                 
@@ -545,7 +638,7 @@
                 
                 "<br>" +
                 
-                //V
+                //V"---" + data.quotes.USD + " " + "<br>" +
                 "<h3>V</h3>" +
                 "VEF---" + data.currencies.VEF + "<br>" +
                 "VND---" + data.currencies.VND + "<br>" +
@@ -635,20 +728,20 @@
            $("#link1").on("click", function(){
                $(".screen").hide();
                $("#screen1").show();
-           });
+           })
            
            //Screen 2 Code
            $("#link2").on("click", function(){
                $(".screen").hide();
                $("#screen2").show();
-           });
+           })
            
            //Screen 3 Code
            $("#link3").on("click", function(){
                $(".screen").hide();
                $("#screen3").show();
-           });
-        });
+           })
+        })
     </script>
     
   </body>
