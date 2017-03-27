@@ -30,7 +30,7 @@
         <div class="mdl-layout__header-row">
           
           <!-- Title -->
-          <span class="mdl-layout-title">International Currency Converter</span>
+          <span class="mdl-layout-title">CurrencyHub</span>
           
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
@@ -106,6 +106,9 @@
         
         $(function(){
           
+          
+          
+          
           //CURRENCYLAYER API SCRIPT
       
             $(function() {
@@ -115,8 +118,9 @@
               
               var apiEndpoint = "http://apilayer.net/api/live";
               
-              //var findBus = $("find").val();
+              var apiEndpointTwo = "http://apilayer.net/api/list";
               
+              //Exchange Rates Data Script  
               $.ajax({
                   url: apiPassThruUrl,
                   dataType: "json",
@@ -125,11 +129,333 @@
                           "access_key" : "5e2649187a3191e5d21109a175e37e24",
                           "format":"1"}
                 }).done (function (data) {
-                  console.log(data);
+                console.log(data);
                   
-                $("#screen3").append("<h4>" + data.quotes.USDAED 
+                $("#screen3").append( "<div>" +
+                  
+                "<h4>" + data.quotes.USDAED + "</h4>" +
                 
-                + "</h4>" 
+                "</div>"
+                
+                );
+    
+                });
+              
+              //Currency List Data Script
+              $.ajax({
+                  url: apiPassThruUrl,
+                  dataType: "json",
+                  method: 'GET',
+                  data: {"apiEndpoint": apiEndpointTwo,
+                          "access_key" : "5e2649187a3191e5d21109a175e37e24",
+                          "format":"1"}
+                }).done (function (data) {
+                console.log(data);
+                  
+                $("#screen2").append( "<div>" +
+                
+                //Countries-Currencies_Symbol BY A
+                
+                //A
+                "<h3>A</h3>" +
+                "AED---" + data.currencies.AED + "<br>" +
+                "AFN---" + data.currencies.AFN + "<br>" +
+                "ALL---" + data.currencies.ALL + "<br>" +
+                "AMD---" + data.currencies.AMD + "<br>" +
+                "ANG---" + data.currencies.ANG + "<br>" +
+                "AOA---" + data.currencies.AOA + "<br>" +
+                "ARS---" + data.currencies.ARS + "<br>" +
+                "AUD---" + data.currencies.AUD + "<br>" +
+                "AWG---" + data.currencies.AWG + "<br>" +
+                "AZN---" + data.currencies.AZN + "<br>" +
+                
+                "<br>" +
+                
+                //B
+                "<h3>B</h3>" +
+                "BAM---" + data.currencies.BAM + "<br>" +
+                "BBD---" + data.currencies.BBD + "<br>" +
+                "BDT---" + data.currencies.BDT + "<br>" +
+                "BGN---" + data.currencies.BGN + "<br>" +
+                "BHD---" + data.currencies.BHD + "<br>" +
+                "BIF---" + data.currencies.BIF + "<br>" +
+                "BMD---" + data.currencies.BMD + "<br>" +
+                "BND---" + data.currencies.BND + "<br>" +
+                "BOB---" + data.currencies.BOB + "<br>" +
+                "BRL---" + data.currencies.BRL + "<br>" +
+                "BSD---" + data.currencies.BSD + "<br>" +
+                "BTC---" + data.currencies.BTC + "<br>" +
+                "BWP---" + data.currencies.BWP + "<br>" +
+                "BYN---" + data.currencies.BYN + "<br>" +
+                "BYR---" + data.currencies.BYR + "<br>" +
+                "BZD---" + data.currencies.BZD + "<br>" +
+                
+                "<br>" +
+                
+                //C
+                "<h3>C</h3>" +
+                "CAD---" + data.currencies.CAD + "<br>" +
+                "CDF---" + data.currencies.CDF + "<br>" +
+                "CHF---" + data.currencies.CHF + "<br>" +
+                "CLF---" + data.currencies.CLF + "<br>" +
+                "CLP---" + data.currencies.CLP + "<br>" +
+                "CNY---" + data.currencies.CNY + "<br>" +
+                "COP---" + data.currencies.COP + "<br>" +
+                "CRC---" + data.currencies.CRC + "<br>" +
+                "CUC---" + data.currencies.CUC + "<br>" +
+                "CUP---" + data.currencies.CUP + "<br>" +
+                "CVE---" + data.currencies.CVE + "<br>" +
+                "CZK---" + data.currencies.CZK + "<br>" +
+              
+  
+                
+                "<br>" +
+                
+                //D
+                "<h3>D</h3>" +
+                "DJF---" + data.currencies.DJF + "<br>" +
+                "DKK---" + data.currencies.DKK + "<br>" +
+                "DOP---" + data.currencies.DOP + "<br>" +
+                "DZD---" + data.currencies.DZD + "<br>" +
+                
+                
+                "<br>" +
+                
+                //E
+                "<h3>E</h3>" +
+                "EEK---" + data.currencies.EEK + "<br>" +
+                "EGP---" + data.currencies.EGP + "<br>" +
+                "ERN---" + data.currencies.ERN + "<br>" +
+                "ETB---" + data.currencies.ETB + "<br>" +
+                "EUR---" + data.currencies.EUR + "<br>" +
+                
+          
+                "<br>" +
+                
+                //F
+                "<h3>F</h3>" +
+                "FKP---" + data.currencies.FKP + "<br>" +
+                
+                "<br>" +
+                
+                
+                //G
+                "<h3>G</h3>" +
+                "GBP---" + data.currencies.GBP + "<br>" +
+                "GEL---" + data.currencies.GEL + "<br>" +
+                "GGP---" + data.currencies.GGP + "<br>" +
+                "GHS---" + data.currencies.GHS + "<br>" +
+                "GIP---" + data.currencies.GIP + "<br>" +
+                "GMD---" + data.currencies.GMD + "<br>" +
+                "GNF---" + data.currencies.GNF + "<br>" +
+                "GTQ---" + data.currencies.GTQ + "<br>" +
+                "GYD---" + data.currencies.GYD + "<br>" +
+                
+                "<br>" +
+                
+                //H
+                "<h3>H</h3>" +
+                "HKD---" + data.currencies.HKD + "<br>" +
+                "HNL---" + data.currencies.HNL + "<br>" +
+                "HRK---" + data.currencies.HRK + "<br>" +
+                "HTG---" + data.currencies.HTG + "<br>" +
+                "HUF---" + data.currencies.HUF + "<br>" +
+                
+                "<br>" +
+                
+                //I
+                "<h3>I</h3>" +
+                "IDR---" + data.currencies.IDR + "<br>" +
+                "ILS---" + data.currencies.ILS + "<br>" +
+                "IMP---" + data.currencies.IMP + "<br>" +
+                "INR---" + data.currencies.INR + "<br>" +
+                "IQD---" + data.currencies.IQD + "<br>" +
+                "IRR---" + data.currencies.IRR + "<br>" +
+                "ISK---" + data.currencies.ISK + "<br>" +
+                
+                "<br>" +
+                
+                //J
+                "<h3>J</h3>" +
+                "JEP---" + data.currencies.JEP + "<br>" +
+                "JMD---" + data.currencies.JMD + "<br>" +
+                "JOD---" + data.currencies.JOD + "<br>" +
+                "JPY---" + data.currencies.JPY + "<br>" +
+                
+                "<br>" +
+                
+                //K
+                "<h3>K</h3>" +
+                "KGS---" + data.currencies.KGS + "<br>" +
+                "KHR---" + data.currencies.KHR + "<br>" +
+                "KMF---" + data.currencies.KMF + "<br>" +
+                "KRW---" + data.currencies.KRW + "<br>" +
+                "KWD---" + data.currencies.KWD + "<br>" +
+                "KYD---" + data.currencies.KYD + "<br>" +
+                "KZT---" + data.currencies.KZT + "<br>" +
+                
+                
+                "<br>" +
+                
+                //L
+                "<h3>L</h3>" +
+                "LAK---" + data.currencies.LAK + "<br>" +
+                "LBP---" + data.currencies.LBP + "<br>" +
+                "LKR---" + data.currencies.LKR + "<br>" +
+                "LRD---" + data.currencies.LRD + "<br>" +
+                "LSL---" + data.currencies.LSL + "<br>" +
+                "LTL---" + data.currencies.LTL + "<br>" +
+                "LVL---" + data.currencies.LVL + "<br>" +
+                "LYD---" + data.currencies.LYD + "<br>" +
+                
+                "<br>" +
+                
+                //M
+                "<h3>M</h3>" +
+                "MAD---" + data.currencies.MAD + "<br>" +
+                "MDL---" + data.currencies.MDL + "<br>" +
+                "MGA---" + data.currencies.MGA + "<br>" +
+                "MKD---" + data.currencies.MKD + "<br>" +
+                "MMK---" + data.currencies.MMK + "<br>" +
+                "MNT---" + data.currencies.MNT + "<br>" +
+                "MOP---" + data.currencies.MOP + "<br>" +
+                "MRO---" + data.currencies.MRO + "<br>" +
+                "MUR---" + data.currencies.MUR + "<br>" +
+                "MVR---" + data.currencies.MVR + "<br>" +
+                "MWK---" + data.currencies.MWK + "<br>" +
+                "MXN---" + data.currencies.MXN + "<br>" +
+                "MYR---" + data.currencies.MYR + "<br>" +
+                "MZN---" + data.currencies.MZN + "<br>" +
+                
+                "<br>" +
+                
+                //N
+                "<h3>N</h3>" +
+                "NAD---" + data.currencies.NAD + "<br>" +
+                "NGN---" + data.currencies.NGN + "<br>" +
+                "NIO---" + data.currencies.NIO + "<br>" +
+                "NOK---" + data.currencies.NOK + "<br>" +
+                "NPR---" + data.currencies.NPR + "<br>" +
+                "NZD---" + data.currencies.NZD + "<br>" +
+                
+                "<br>" +
+                
+                //O
+                "<h3>O</h3>" +
+                "OMR---" + data.currencies.OMR + "<br>" +
+                
+                "<br>" +
+                
+                //P
+                "<h3>P</h3>" +
+                "PAB---" + data.currencies.PAB + "<br>" +
+                "PEN---" + data.currencies.PEN + "<br>" +
+                "PGK---" + data.currencies.PGK + "<br>" +
+                "PHP---" + data.currencies.PHP + "<br>" +
+                "PKR---" + data.currencies.PKR + "<br>" +
+                "PLN---" + data.currencies.PLN + "<br>" +
+                "PYG---" + data.currencies.PYG + "<br>" +
+                
+                "<br>" +
+                
+                //Q
+                "<h3>Q</h3>" +
+                "QAR---" + data.currencies.QAR + "<br>" +
+                
+                "<br>" +
+                
+                //R
+                "<h3>R</h3>" +
+                "RON---" + data.currencies.RON + "<br>" +
+                "RSD---" + data.currencies.RSD + "<br>" +
+                "RUB---" + data.currencies.RUB + "<br>" +
+                "RWF---" + data.currencies.RWF + "<br>" +
+                
+                "<br>" +
+                
+                //S
+                "<h3>S</h3>" +
+                "SBD---" + data.currencies.SBD + "<br>" +
+                "SCR---" + data.currencies.SCR + "<br>" +
+                "SDG---" + data.currencies.SDG + "<br>" +
+                "SEK---" + data.currencies.SEK + "<br>" +
+                "SGD---" + data.currencies.SGD + "<br>" +
+                "SHP---" + data.currencies.SHP + "<br>" +
+                "SLL---" + data.currencies.SLL + "<br>" +
+                "SOS---" + data.currencies.SOS + "<br>" +
+                "SRD---" + data.currencies.SRD + "<br>" +
+                "STD---" + data.currencies.STD + "<br>" +
+                "SVC---" + data.currencies.SVC + "<br>" +
+                "SYP---" + data.currencies.SYP + "<br>" +
+                "SZL---" + data.currencies.SZL + "<br>" +
+                
+                "<br>" +
+                
+                //T
+                "<h3>T</h3>" +
+                "THB---" + data.currencies.THB + "<br>" +
+                "TJS---" + data.currencies.TJS + "<br>" +
+                "TMT---" + data.currencies.TMT + "<br>" +
+                "TND---" + data.currencies.TND + "<br>" +
+                "TOP---" + data.currencies.TOP + "<br>" +
+                "TRY---" + data.currencies.TRY + "<br>" +
+                "TTD---" + data.currencies.TTD + "<br>" +
+                "TWD---" + data.currencies.TWD + "<br>" +
+                "TZS---" + data.currencies.TZS + "<br>" +
+                
+                "<br>" +
+                
+                //U
+                "<h3>U</h3>" +
+                "UAH---" + data.currencies.UAH + "<br>" +
+                "UGX---" + data.currencies.UGX + "<br>" +
+                "USD---" + data.currencies.USD + "<br>" +
+                "UYU---" + data.currencies.UYU + "<br>" +
+                "UZS---" + data.currencies.UZS + "<br>" +
+                
+                "<br>" +
+                
+                //V
+                "<h3>V</h3>" +
+                "VEF---" + data.currencies.VEF + "<br>" +
+                "VND---" + data.currencies.VND + "<br>" +
+                "VUV---" + data.currencies.VUV + "<br>" +
+                
+                "<br>" +
+                
+                //W
+                "<h3>W</h3>" +
+                "WST---" + data.currencies.WST + "<br>" +
+               
+                "<br>" +
+                
+                //X
+                "<h3>X</h3>" +
+                "XAF---" + data.currencies.XAF + "<br>" +
+                "XAG---" + data.currencies.XAG + "<br>" +
+                "XAU---" + data.currencies.XAU + "<br>" +
+                "XCD---" + data.currencies.XCD + "<br>" +
+                "XDR---" + data.currencies.XDR + "<br>" +
+                "XOF---" + data.currencies.XOF + "<br>" +
+                "XPF---" + data.currencies.XPF + "<br>" +
+                
+                "<br>" +
+                
+                //Y
+                "<h3>Y</h3>" +
+                "YER---" + data.currencies.YER + "<br>" +
+                
+                "<br>" +
+                
+                //Z
+                "<h3>Z</h3>" +
+                "ZAR---" + data.currencies.ZAR + "<br>" +
+                "ZMK---" + data.currencies.ZMK + "<br>" +
+                "ZMW---" + data.currencies.ZMW + "<br>" +
+                "ZWL---" + data.currencies.ZWL + "<br>" +
+    
+                
+                "</div>"
                 
                 );
     
@@ -179,20 +505,20 @@
            $("#link1").on("click", function(){
                $(".screen").hide();
                $("#screen1").show();
-           })
+           });
            
            //Screen 2 Code
            $("#link2").on("click", function(){
                $(".screen").hide();
                $("#screen2").show();
-           })
+           });
            
            //Screen 3 Code
            $("#link3").on("click", function(){
                $(".screen").hide();
                $("#screen3").show();
-           })
-        })
+           });
+        });
     </script>
     
   </body>
