@@ -84,7 +84,8 @@
         <!--Screen 2: List of Currencies-->
         <div id="screen2" class="screen page-content">
           
-          <h1>Availible Currencies</h1>
+          <h1>Available Currencies</h1>
+        
           
         </div>
         
@@ -92,8 +93,10 @@
         <div id="screen3" class="screen page-content">
           
           <h1>U.S. Dollar Exchange Rates</h1>
-          
-          
+          <h6><i>At CurrencyHub, we want to the provide exchange rates of the American dollar for some of the best countries in the world
+          from Switzerland to the U.K. The currencylayer API allows you to have access to have accesss to the exchange rates of the currencies of over
+          160 countries. Here are the exchange rates in accordance to tourist countries based on categories. For more information on these countries <a href="https://www.usnews.com/news/best-countries/rankings-index">click here.</a></i></h6>
+        
         </div>
       
       </main>
@@ -105,9 +108,7 @@
     <script>
         
         $(function(){
-          
-          
-          
+        
           
           //CURRENCYLAYER API SCRIPT
       
@@ -120,7 +121,12 @@
               
               var apiEndpointTwo = "http://apilayer.net/api/list";
               
-              //Exchange Rates Data Script  
+              console.log(apiEndpoint);
+              
+              console.log(apiEndpointTwo);
+             
+             
+             //Exchange Rates Data Script
               $.ajax({
                   url: apiPassThruUrl,
                   dataType: "json",
@@ -132,14 +138,138 @@
                 console.log(data);
                   
                 $("#screen3").append( "<div>" +
+                
                   
-                "<h4>" + data.quotes.USDAED + "</h4>" +
+                //ADVENTURE
+                "<h3>Adventure:<h3>" +
+                "<p>1: Brazil---" + data.quotes.USDBRL + "" +
+                "<p>2: Panama---" + data.quotes.USDPAB + "" +
+                "<p>3: Spain---" + data.quotes.USD + "" +
+                "<p>4: Thailand---" + data.quotes.USD + "" +
+                "<p>5: Greece---" + data.quotes.USD + "" +
+                "<p>6: New Zealand" + data.quotes.USD + "" +
+                "<p>7: Costa Rica" + data.quotes.USD + "" +
+                "<p>8: Mexico" + data.quotes.USD + "" +
+                "<p>9: Austrailia" + data.quotes.USD + "" +
+                "<p>10: Argentina" + data.quotes.USD + "" +
+                
+                
+                //CITIZENSHIP
+                "<p>1: Norway---" + data.quotes.USD + "" +
+                "<p>2: Sweden---" + data.quotes.USD + "" +
+                "<p>3: Switzerland--" + data.quotes.USD + "" +
+                "<p>4: Canada---" + data.quotes.USD + "" +
+                "<p>5: Finland---" + data.quotes.USD + "" +
+                "<p>6: Denmark---" + data.quotes.USD + "" +
+                "<p>7: Netherlands---" + data.quotes.USD + "" +
+                "<p>8: Germany---" + data.quotes.USD + "" +
+                "<p>9: Austria---" + data.quotes.USD + "" +
+                "<p>10: Luxembourg---" + data.quotes.USD + "" +
+                
+                //CULTURAL INFLUENCE
+                "<h3>Cultural Influence:<h3>" +
+                "<p>1: Italy---" + data.quotes.USD + "" +
+                "<p>2: France---" + data.quotes.USD + "" +
+                "<p>3: Japan---" + data.quotes.USD + "" +
+                "<p>4: Singapore---" + data.quotes.USD + "" +
+                "<p>5: Spain---" + data.quotes.USD + "" +
+                "<p>6: China---" + data.quotes.USD + "" +
+                "<p>7: Portugal---" + data.quotes.USD + "" +
+                "<p>8: Ireland---" + data.quotes.USD + "" +
+                "<p>9: Egypt" + data.quotes.USD + "" +
+                "<p>10: Qatar" + data.quotes.USD + "" +
+                
+                //STUDY ABROAD
+                 "<h3>Studying Abroad:<h3>" +
+                "<p>1: United Arab Emirates---" + data.quotes.USDAED + " AED" +
+                "<p>2: Singapore---" + data.quotes.USD + "" +
+                "<p>3: India---" + data.quotes.USD + "" +
+                "<p>4: Turkey---" + data.quotes.USD + "" +
+                "<p>5: Romania---" + data.quotes.USD + "" +
+                
+                //ENTRENEPENEURSHIP
+                "<h3>Entrenepeurship:<h3>" +
+                "<p>1: " + data.quotes.USD + "" +
+                "<p>2: " + data.quotes.USD + "" +
+                "<p>3: " + data.quotes.USD + "" +
+                "<p>4: " + data.quotes.USD + "" +
+                "<p>5: " + data.quotes.USD + "" +
+                "<p>6: " + data.quotes.USD + "" +
+                "<p>7: " + data.quotes.USD + "" +
+                "<p>8: " + data.quotes.USD + "" +
+                "<p>9: " + data.quotes.USD + "" +
+                "<p>10: " + data.quotes.USD + "" +
+                
+                //MOVERS
+                "<h3>Rapidly Growing:<h3>" +
+                "<p>1: United Arab Emirates" + data.quotes.USD + "" +
+                "<p>2: Singapore---" + data.quotes.USD + "" +
+                "<p>3: India---" + data.quotes.USD + "" +
+                "<p>4: China---" + data.quotes.USD + "" +
+                "<p>5: Japan---" + data.quotes.USD + "" +
+                "<p>6: Malaysia---" + data.quotes.USD + "" +
+                "<p>7: Qatar---" + data.quotes.USD + "" +
+                "<p>8: Oman---" + data.quotes.USD + "" +
+                "<p>9: Kazakhstan---" + data.quotes.USD + "" +
+                "<p>10: Costa Rica---" + data.quotes.USD + "" +
+                
+                
+                //OPEN FOR BUSINESS
+                "<h3>Open for Business:<h3>" +
+                "<p>1: Panama---" + data.quotes.USD + "" +
+                "<p>2: Luxembourg---" + data.quotes.USD + "" +
+                "<p>3: Switzerland---" + data.quotes.USD + "" +
+                "<p>4: Denmark---" + data.quotes.USD + "" +
+                "<p>5: Finland---" + data.quotes.USD + "" +
+                "<p>6: New Zealand---" + data.quotes.USD + "" +
+                "<p>7: Malaysia---" + data.quotes.USD + "" +
+                "<p>8: Austria---" + data.quotes.USD + "" +
+                "<p>9: Dominican Republic---" + data.quotes.USD + "" +
+                "<p>10: South Korea---" + data.quotes.USD + "" +
+                
+                
+                //EDUCATION
+                "<h3>Education<h3>" +
+                "<p>1: Canada---" + data.quotes.USD + "" +
+                "<p>2: United Kingdom---" + data.quotes.USD + "" +
+                "<p>3: Germany" + data.quotes.USD + "" +
+                "<p>4: Austrailia---" + data.quotes.USD + "" +
+                "<p>5: France---" + data.quotes.USD + "" +
+                
+                //POWER
+                "<h3>Power<h3>" +
+                "<p>1: Russia---" + data.quotes.USD + "" +
+                "<p>2: China---" + data.quotes.USD + "" +
+                "<p>3: United Kingdom---" + data.quotes.USD + "" +
+                "<p>4: Germany---" + data.quotes.USD + "" +
+                "<p>5: FRance---" + data.quotes.USD + "" +
+                "<p>6: Japan---" + data.quotes.USD + "" +
+                "<p>7: Saudi Arabia---" + data.quotes.USD + "" +
+                "<p>8: Turkey---" + data.quotes.USD + "" +
+                "<p>9: Iran---" + data.quotes.USD + "" +
+                "<p>10: South Korea---" + data.quotes.USD + "" +
+                
+                
+                //QUALITY OF LIFE
+                "<h3>Quality of Life: <h3>" +
+                "<p>1: Luxembourg---" + data.quotes.USD + "" +
+                "<p>2: Canada---" + data.quotes.USD + "" +
+                "<p>3: Norway---" + data.quotes.USD + "" +
+                "<p>4: Switzerland---" + data.quotes.USD + "" +
+                "<p>5: France---" + data.quotes.USD + "" +
+                "<p>6: Germany---" + data.quotes.USD + "" +
+                "<p>7: AustriaNetherlands---" + data.quotes.USD + "" +
+                "<p>8: United Kingdom---" + data.quotes.USD + "" +
+                "<p>9: Denmark---" + data.quotes.USD + "" +
+                "<p>10: Netherlands---" + data.quotes.USD + "" +
                 
                 "</div>"
                 
                 );
     
                 });
+              
+            
               
               //Currency List Data Script
               $.ajax({
