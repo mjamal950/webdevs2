@@ -3,7 +3,7 @@
     
   <head>
       
-    <title>IndexedDB Lab</title>
+    <title>Lab 8: IndexedDB</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -24,7 +24,7 @@
         <div class="mdl-layout__header-row">
             
           <!-- Title -->
-          <span class="mdl-layout-title">Title</span>
+          <span class="mdl-layout-title">Lab 8: IndexedDB</span>
         </div>
         
         <!-- Tabs -->
@@ -67,35 +67,53 @@
         var url = baseURL;
         console.log(url);
         
-        $.ajax({
-            url: url,
-            dataType: "json",
-            method: 'GET',
-            data: {
-              "department" : "CITY COUNCIL"}
-        }).done (function (data) {
-         console.log(data);
-         
          //DEXIE DATABASE CODE-->
+         
          var db = new Dexie('employeeDB');
          // Define a schema
          db.version(1).stores({
          employees: "++id, name, department, title, salary"
          });
-         // Open the database
+         
+         /* Open the database
       	 db.open().catch(function(error) {
       	 alert('Uh oh : ' + error);
-      	 });
+      	 }); */
+      	 
+      	 db.employees.count().then(function(count){
+      	   console.log(count);
+      	   
+      	   //only if the table is empty we need to grab the city employee data
+      	   if (count==0) {
+      	     //AJAX CALL
+      	     $.ajax({
+              url: url,
+              dataType: "json",
+              method: 'GET',
+              data: {
+                "department" : "CITY COUNCIL"}
+          }).done (function (data) {
+           console.log(data);
+           
+          //CALLBACK FOR THE DEXIE DATABASE
+           $.each(data, function(i,v) {
+             db.employees.add({
+               name: v.name,
+               title: v.job_titles,
+               salary: v.employee_annual_salary,
+               department: v.department});
+           });
+        
+      
+          });
+      	   }
+      	   
+      	 })
+      	 
       	 //<--DEXIE DATABASE CODE
-      	
-                  
-        /*  $("#tab2").append( "<div>" +
-                
-            "</div>"
-                
-        ); */
-    
-        });
+        
+        
+        
         
         
     </script>
