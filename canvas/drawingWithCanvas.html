@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Drawwing with Canvas Element</title>
+        <style>
+            canvas {
+              border: #333 10px solid;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <h1>Burj Al Arab Canvas Element Drawing (قماش رسم العنصر: برج العرب)</h1>
+        
+        <canvas id="myCanvas" width="700" height="500px"></canvas>
+        
+        <script>
+            
+            var canvas = document.querySelector("#myCanvas");
+            var context = canvas.getContext("2d");
+            
+            
+            
+            // ---CANVAS DRAWING CODE-->
+            
+            
+            //Ocean
+            context.beginPath();
+            context.moveTo(0, 500);
+            context.lineTo(700, 500);
+            context.closePath();
+            context.lineWidth = 250;
+            context.strokeStyle = "steelblue";
+            context.stroke();
+            
+            //Sand Island 
+            context.beginPath();
+            context.moveTo("300, 500");
+            context.lineTo("450, 500");
+            context.closePath();
+            context.lineWidth
+            //peachpuff
+            
+            // draw a diagonal line
+            //context.moveTo(0, 50);
+           // context.lineTo(, 50);
+             
+            // close the path
+            //context.closePath();
+             
+            // specify what our line looks like
+            //context.lineWidth = 45;
+            //context.lineWidth = 45;
+             
+            // get the line drawn to the canvas
+            //context.stroke();
+            
+            
+             // <--CANVAS DRAWING CODE---
+            
+        </script>
+        
+    </body>
+    
+</html>

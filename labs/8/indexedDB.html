@@ -41,81 +41,135 @@
       
       <main class="mdl-layout__content">
           
-        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-          <div class="page-content"><!-- Your content goes here --></div>
+        <!--TAB 1-->  
+        <section id="#tab1" class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+          <div class="page-content">
+            
+            <button id="btn">Display</button>
+            
+            <div id="display">
+            
+            </div>
+            
+            
+          </div>
         </section>
         
-        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-          <div class="page-content"><!-- Your content goes here --></div>
+        <!--TAB 2-->
+        <section id="#tab2" class="mdl-layout__tab-panel" id="fixed-tab-2">
+          <div class="page-content">
+            
+            <!-- Your content goes here -->
+            
+            
+          </div>
         </section>
         
-        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-          <div class="page-content"><!-- Your content goes here --></div>
+        <!--TAB 3-->
+        <section id="#tab3" class="mdl-layout__tab-panel" id="fixed-tab-3">
+          <div class="page-content">
+            
+            
+            <!-- Your content goes here -->
+            
+            
+          </div>
         </section>
         
       </main>
     </div>
     
+    <!-- Include Dexie -->
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    
     <!--JQUERY CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
     <script>
-        
-        var baseURL = 'https://data.cityofchicago.org/resource/xzkq-xp2w.json';
-        
-        // full URL
-        var url = baseURL;
-        console.log(url);
-        
-         //DEXIE DATABASE CODE-->
-         
-         var db = new Dexie('employeeDB');
-         // Define a schema
-         db.version(1).stores({
-         employees: "++id, name, department, title, salary"
-         });
-         
-         /* Open the database
-      	 db.open().catch(function(error) {
-      	 alert('Uh oh : ' + error);
-      	 }); */
-      	 
-      	 db.employees.count().then(function(count){
-      	   console.log(count);
-      	   
-      	   //only if the table is empty we need to grab the city employee data
-      	   if (count==0) {
-      	     //AJAX CALL
-      	     $.ajax({
-              url: url,
-              dataType: "json",
-              method: 'GET',
-              data: {
-                "department" : "CITY COUNCIL"}
-          }).done (function (data) {
-           console.log(data);
-           
-          //CALLBACK FOR THE DEXIE DATABASE
-           $.each(data, function(i,v) {
-             db.employees.add({
-               name: v.name,
-               title: v.job_titles,
-               salary: v.employee_annual_salary,
-               department: v.department});
-           });
-        
-      
+      var baseURL = 'https://data.cityofchicago.org/resource/xzkq-xp2w.json';
+    
+      // full URL
+      var url = baseURL;
+      console.log(url);
+    
+      //DEXIE DATABASE CODE
+    
+      var db = new Dexie('employeeDB');
+      // Define a schema
+      db.version(1).stores({
+        employees: "++id, name, department, title, salary"
+      });
+    
+      /* Open the database
+          	 db.open().catch(function(error) {
+          	 alert('Uh oh : ' + error);
+          	 }); */
+    
+      db.employees.count().then(function(count) {
+        console.log(count);
+    
+        //only if the table is empty we need to grab the city employee data
+        if (count == 0) {
+          //AJAX CALL
+          $.ajax({
+            url: url,
+            dataType: "json",
+            method: 'GET',
+            data: {
+              "department": "CITY COUNCIL"
+            }
+          }).done(function(data) {
+            console.log(data);
+    
+            //CALLBACK FOR THE DEXIE DATABASE
+            $.each(data, function(i, v) {
+              db.employees.add({
+                name: v.name,
+                title: v.job_titles,
+                salary: v.employee_annual_salary,
+                department: v.department
+              });
+            });
+    
           });
-      	   }
-      	   
-      	 })
-      	 
-      	 //<--DEXIE DATABASE CODE
-        
-        
-        
-        
-        
+    
+        }
+    
+      });
+    
+      function displayEmployees() {
+        console.log(strQuery);
+        db.employees.each(function(employee) {
+          var html = "<strong>" + employee.name + "</strong>"
+          html += "<br>" + employee.department + "<br><br>";
+          $("#display").append(html);
+        })
+      }
+      
+      $("#btn").on("click", function(){
+        console.log("Clicked");
+      })
+    
+      // //Main Home Screen/Page
+      // $("#screen1").show();
+    
+      // //Tab 1 Code
+      // $("#tab1").on("click", function() {
+      //   $(".screen").hide();
+      //   $("#screen1").show();
+      // })
+    
+      // //Tab 2 Code
+      // $("#tab2").on("click", function() {
+      //   $(".screen").hide();
+      //   $("#screen2").show();
+      // })
+    
+      // //Tab 3 Code
+      // $("#tab3").on("click", function() {
+      //   $(".screen").hide();
+      //   $("#screen3").show();
+      // })
     </script>
     
     
