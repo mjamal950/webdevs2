@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Drawwing with Canvas Element</title>
+        <title>Drawing with Canvas Element</title>
         <style>
             canvas {
               border: #333 10px solid;
@@ -14,7 +14,13 @@
     
     <body>
         
-        <h1>Burj Al Arab Canvas Element Drawing (قماش رسم العنصر: برج العرب)</h1>
+        <h1>Buckingham Fountain: Downtown Chicago-- 301 S Columbus Dr, Chicago, IL 60605</h1>
+        
+        <h3><i>
+Fontaine de Buckingham: Centre-ville de Chicago--Der Buckingham-Brunnen: Innenstadt von Chicago--
+Βρύση του Μπάκιγχαμ: Σικάγο Κέντρο-- El Fuente Buckingham: Centro de Chicago--Букингемский фонтан:
+Центр города Чикаго--Buckingham Çeşmesi: Chicago Şehri--نافورة باكنجهام: وسط مدينة شيكاغو</i></h3>
+        
         
         <canvas id="myCanvas" width="700" height="500px"></canvas>
         
@@ -26,39 +32,55 @@
             
             
             // ---CANVAS DRAWING CODE-->
-            
-            
-            //Ocean
+        
+            //First level
+           
+           
             context.beginPath();
-            context.moveTo(0, 500);
-            context.lineTo(700, 500);
-            context.closePath();
-            context.lineWidth = 250;
-            context.strokeStyle = "steelblue";
+            
+            
+            
+            context.moveTo(20, 499)
+            context.lineTo(20, 400);
+            context.lineTo(680, 400);
+            context.lineTo(680, 499);
+            context.lineTo(20, 499);
+            context.strokeStyle = "000000";
+            context.fillStyle = "#A0522D";
+            context.fill();
             context.stroke();
             
-            //Sand Island 
-            context.beginPath();
-            context.moveTo("300, 500");
-            context.lineTo("450, 500");
+            //Second Level
+            context.moveTo(40, 400);
+            context.lineTo(650, 400);
+            context.lineTo(650, 330);
+            context.lineTo(40, 330);
+            context.strokeStyle = "000000";
+            context.fillStyle = "#A0522D";
+            context.fill();
+            context.stroke();
+            
+            //Third Level
+            context.moveTo(110, 330);
+            context.lineTo(570, 330);
+            context.lineTo(570, 200);
+            context.lineTo(110, 200);
+            context.strokeStyle = "000000";
+            context.fillStyle = "#A0522D";
+            context.fill();
+            context.stroke();
+            
+            //Top Water Level
+            context.moveTo(140, 200);
+            context.lineTo(430, 200);
+            context.lineTo(430, 90);
+            context.lineTo(140, 90);
+            context.strokeStyle = "000000";
+            context.fillStyle = "#A0522D";
+            context.fill();
+            context.stroke();
+            
             context.closePath();
-            context.lineWidth
-            //peachpuff
-            
-            // draw a diagonal line
-            //context.moveTo(0, 50);
-           // context.lineTo(, 50);
-             
-            // close the path
-            //context.closePath();
-             
-            // specify what our line looks like
-            //context.lineWidth = 45;
-            //context.lineWidth = 45;
-             
-            // get the line drawn to the canvas
-            //context.stroke();
-            
             
              // <--CANVAS DRAWING CODE---
             
